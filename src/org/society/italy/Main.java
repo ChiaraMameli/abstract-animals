@@ -18,8 +18,12 @@ public class Main {
 		
 		int minIncome = Integer.MAX_VALUE;
 		int maxIncome = Integer.MIN_VALUE;
+		int maxIncomeBoss = Integer.MIN_VALUE;
+		int minIncomeEmployee = Integer.MAX_VALUE;
 		String minIncomePerson = "";
 		String maxIncomePerson = "";
+		Boss maxIncomeBossP = null;
+		Employee minIncomeEmployeeP = null;
 		
 		int companySalaries = 0;
 		
@@ -37,6 +41,22 @@ public class Main {
 			}
 			
 			companySalaries += income;
+			
+			if(company[x] instanceof Boss) {
+				Boss b = (Boss) company[x];
+				if (income > maxIncomeBoss) {
+					maxIncomeBoss = income;
+					maxIncomeBossP = (Boss) company[x];
+				}
+			}
+			
+			if(company[x] instanceof Employee) {
+				Employee e = (Employee) company[x];
+				if (income < minIncomeEmployee) {
+					minIncomeEmployee = e.getYearIncome();
+					minIncomeEmployeeP = e;
+				}
+			}
 		}
 		
 		int averageSalary = companySalaries / company.length;
@@ -47,38 +67,9 @@ public class Main {
 		System.out.println("average salary: " + averageSalary + "€");
 		
 		System.out.println("---------------");
-		
-		int minIncomeEmployeeS = Integer.MAX_VALUE;
-		String minIncomeEmployee = "";
-		
-		for(int x = 0; x < employees.length; x++) {
-			int income = employees[x].getYearIncome();
-			String employee = employees[x].getName() + " " + employees[x].getSurname();
-			
-			if(minIncomeEmployeeS > income) {
-				minIncomeEmployeeS = income;
-				minIncomeEmployee = employee;
-			}
-		}
-		
-		System.out.println("min income employee: " + minIncomeEmployee + " (" + minIncomeEmployeeS + "€)");
-		
-		System.out.println("---------------");
-		
-		int maxIncomeBossS = Integer.MIN_VALUE;
-		String maxIncomeBoss = "";
-		
-		for(int x = 0; x < bosses.length; x++) {
-			int income = bosses[x].getYearIncome();
-			String boss = bosses[x].getName() + " " + bosses[x].getSurname();
-			
-			if(maxIncomeBossS < income) {
-				maxIncomeBossS = income;
-				maxIncomeBoss = boss;
-			}
-		}
-		
-		System.out.println("max income boss: " + maxIncomeBoss + " (" + maxIncomeBossS + "€)");
+				
+		System.out.println("max income boss: " + maxIncomeBossP.getFullName() + " (" + maxIncomeBoss + "€)");
+		System.out.println("min income boss: " + minIncomeEmployeeP.getFullName() + " (" + minIncomeEmployee + "€)");
 		
 	}
 }
