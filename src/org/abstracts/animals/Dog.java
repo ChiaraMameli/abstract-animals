@@ -1,6 +1,6 @@
 package org.abstracts.animals;
 
-public class Dog extends Animals implements Actions{
+public class Dog extends Animals{
 
 	@Override
 	public String cry() {
@@ -12,16 +12,5 @@ public class Dog extends Animals implements Actions{
 	public String eat() {
 		return "I eat bones";
 	}
-
-	@Override
-	public String fly() {
-		return "I can't fly!";
-	}
-
-	@Override
-	public String swim() {
-		return "I can't swim!";
-	}
-
 
 }

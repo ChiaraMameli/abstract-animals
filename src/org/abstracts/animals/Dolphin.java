@@ -1,6 +1,8 @@
 package org.abstracts.animals;
 
-public class Dolphin extends Animals implements Actions {
+import org.abstracts.inter.INuotante;
+
+public class Dolphin extends Animals implements INuotante{
 
 	@Override
 	public String cry() {
@@ -13,13 +15,8 @@ public class Dolphin extends Animals implements Actions {
 	}
 
 	@Override
-	public String fly() {
-		return "I can't fly";
-	}
-
-	@Override
 	public String swim() {
-		return "I'm swimming!";
+		return "I'm swimming";
 	}
 
 }

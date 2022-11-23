@@ -1,12 +1,14 @@
 package org.abstracts.animals;
 
+import org.abstracts.inter.INuotante;
+import org.abstracts.inter.IVolante;
+
 public class Main {
 	public static void main(String[] args) {
 		Dog pluto = new Dog();
 		System.out.println(pluto.sleep());
 		System.out.println(pluto.cry());
 		System.out.println(pluto.eat());
-		System.out.println(pluto.fly());
 		
 		System.out.println("-------------");
 		
@@ -14,7 +16,7 @@ public class Main {
 		System.out.println(tweety.sleep());
 		System.out.println(tweety.cry());
 		System.out.println(tweety.eat());
-		System.out.println(tweety.fly());
+		faiVolare(tweety);
 		
 		System.out.println("-------------");
 		
@@ -22,7 +24,7 @@ public class Main {
 		System.out.println(sam.sleep());
 		System.out.println(sam.cry());
 		System.out.println(sam.eat());
-		System.out.println(sam.fly());
+		faiVolare(sam);
 		
 		System.out.println("-------------");
 		
@@ -30,8 +32,18 @@ public class Main {
 		System.out.println(nosy.sleep());
 		System.out.println(nosy.cry());
 		System.out.println(nosy.eat());
-		System.out.println(nosy.swim());
+		faiNuotare(nosy);
 		
 		System.out.println("-------------");
+		
+
+	}
+	
+	static void faiVolare(IVolante animal) {
+		System.out.println(animal.fly());
+	}
+	
+	static void faiNuotare(INuotante animal) {
+		System.out.println(animal.swim());
 	}
 }

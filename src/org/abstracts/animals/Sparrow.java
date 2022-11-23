@@ -1,6 +1,8 @@
 package org.abstracts.animals;
 
-public class Sparrow extends Animals implements Actions{
+import org.abstracts.inter.IVolante;
+
+public class Sparrow extends Animals implements IVolante{
 
 	@Override
 	public String cry() {
@@ -14,12 +16,6 @@ public class Sparrow extends Animals implements Actions{
 
 	@Override
 	public String fly() {
-		return "I'm flying!";
+		return "I'm flying";
 	}
-
-	@Override
-	public String swim() {
-		return "I can't swim";
-	}
-
 }
